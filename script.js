@@ -4,7 +4,7 @@ var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var lower = "abcdefghijklmnopqrstuvwxyz";
 var numbers = "0123456789";
 var special = "!@#$%^&*()_+";
-var invalidLen = "Invalid password length entry"
+var invalidLen = "Invalid password length entry."
 var invalidChar = "Please select at least one criteria."
 
 // Add event listener to generate button
@@ -24,20 +24,18 @@ function writePassword() {
 function generatePassword() {
   
     var passwordLength = prompt("Password length, must be between 8 and 128");
-    if (passwordLength < 8 || passwordLength > 128) {
+    if (passwordLength < 8 || passwordLength > 128) {   // validate length entry is within parameters
       alert ("Please choose a number between 8 and 128");
     return invalidLen;
     }
     
     console.log("Selected " + passwordLength + " characters.")
 
+    // get passwor
 
 
     var userSelect = "";
     var finalPass = "";
-
-    
-
     var up = confirm("Use Uppercase characters?");
       if(up) {
         userSelect = userSelect.concat(upper);
@@ -56,12 +54,10 @@ function generatePassword() {
       }
     // validate character entry
     if(!up && !low && !num && !spec) {
-      return invalidChar;
+     return invalidChar;
     }
 
-    console.log("User character selection  = ( " + userSelect + ")") 
-
-
+    console.log("User character selection  " + userSelect ) 
 
     for (var i = 0; i < passwordLength; i++) {
       var randoPass = [Math.floor(Math.random() * userSelect.length)];
